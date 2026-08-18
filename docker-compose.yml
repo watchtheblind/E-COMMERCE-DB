@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  postgres_db:
+    image: postgres:16
+    container_name: ecommerce_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: ecommerce
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
